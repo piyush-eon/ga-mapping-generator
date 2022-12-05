@@ -1,38 +1,77 @@
 .App {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.App > h2 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input,
+textarea {
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.checkboxes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.checkboxes > div {
+  background-color: gainsboro;
+  padding: 2px 40px 0 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.checkboxes > div > input {
+  height: 25px;
+  width: 25px;
+}
+
+.App > button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  margin: 5px;
+}
+
+.App > button:hover {
+  background-color: rgb(64, 190, 64);
+}
+
+code {
+  background-color: black;
+  color: white;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 5px;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.mappings {
+  display: flex;
+  gap: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mappings > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.copyBtn {
+  padding: 5px;
 }
