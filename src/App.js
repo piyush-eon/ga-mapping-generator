@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import _ from "lodash";
+import CodeContainer from "./components/code-container";
 
 export default function App() {
   const [form, setForm] = useState({
@@ -110,77 +111,17 @@ export default function App() {
       )}
       <button onClick={handleGaGeneration}>Generate</button>
       {eventActionVariables.length > 0 && (
-        <>
-          <span>Variables</span>
-          <code>
-            <button
-              className="copyBtn"
-              onClick={() => {
-                navigator.clipboard.writeText(eventActionVariables.join("\n"));
-              }}
-            >
-              copy
-            </button>
-
-            <span style={{ whiteSpace: "pre-line" }}>
-              {eventActionVariables.join("\n")}
-            </span>
-          </code>
-        </>
+          <CodeContainer title={"Variables"} mapping={eventActionVariables} />
       )}
       <div className="mappings">
         <div>
           {form.isMobile && eventMobileMapping.length > 0 && (
-            <>
-              <span>Mobile Mapping</span>
-              <code>
-                <button
-                  className="copyBtn"
-                  onClick={() => {
-                    navigator.clipboard.writeText(
-                      eventMobileMapping.join("\n")
-                    );
-                  }}
-                >
-                  copy
-                </button>
-                {eventMobileMapping.map((mapping) => {
-                  return (
-                    <span style={{ whiteSpace: "pre-line" }}>
-                      {mapping}
-                      <br />
-                    </span>
-                  );
-                })}
-              </code>
-            </>
+              <CodeContainer title={"Mobile Mapping"} mapping={eventMobileMapping} />
           )}
         </div>
         <div>
           {form.isDesktop && eventDesktopMapping.length > 0 && (
-            <>
-              <span>Desktop Mapping</span>
-              <code>
-                <button
-                  className="copyBtn"
-                  onClick={() => {
-                    navigator.clipboard.writeText(
-                      eventDesktopMapping.join("\n")
-                    );
-                  }}
-                >
-                  copy
-                </button>
-                {eventDesktopMapping.map((mapping) => {
-                  return (
-                    <span style={{ whiteSpace: "pre-line" }}>
-                      {mapping}
-                      <br />
-                    </span>
-                  );
-                })}
-              </code>
-            </>
+              <CodeContainer title={"Desktop Mapping"} mapping={eventDesktopMapping} />
           )}
         </div>
       </div>
